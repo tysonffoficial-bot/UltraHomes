@@ -1,0 +1,29 @@
+name: UltraHomes
+version: 1.0.0
+main: com.ultrahomes.UltraHomesPlugin
+author: UltraHomes
+api-version: 1.20
+softdepend:
+  - PlaceholderAPI
+commands:
+  home:
+    description: Gestiona y usa tus hogares.
+    usage: /home [set|del|default|list|nombre]
+    aliases: [uhome]
+  sethome:
+    description: Crea un nuevo hogar rápido.
+    usage: /sethome [nombre]
+  delhome:
+    description: Borra un hogar.
+    usage: /delhome <nombre>
+  homes:
+    description: Lista tus hogares.
+    usage: /homes
+permissions:
+  ultrahomes.limit.*:
+    description: Define cuántos hogares puede tener el jugador.
+    children:
+      ultrahomes.limit.3: true
+  ultrahomes.limit.3:
+    default: true
+    description: Permite hasta 3 hogares.
