@@ -47,3 +47,18 @@ Si quieres subir el código y el _jar_ generado a un repositorio remoto:
    git push -u origin work
    ```
 3. (Opcional) Crea un _release_ en GitHub y adjunta `target/UltraHomes-1.0.0-shaded.jar`.
+
+## Panel web de moderación Tebex (demo)
+
+Se añadió una página estática de moderación para la tienda Tebex de **HylandMC** en:
+
+- `web/tebex-moderacion/index.html`
+
+Para abrirla localmente:
+
+```bash
+cd web/tebex-moderacion
+python3 -m http.server 8080
+```
+
+Luego visita `http://localhost:8080`.

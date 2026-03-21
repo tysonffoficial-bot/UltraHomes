@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HylandMC • Moderación Tebex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">HylandMC • Tebex</p>
+        <h1>Panel de moderación de tienda</h1>
+      </div>
+      <button class="btn btn-danger" id="panicBtn">Pausar ventas</button>
+    </header>
+
+    <main class="layout">
+      <section class="card metrics">
+        <h2>Resumen en vivo</h2>
+        <div class="metric-grid">
+          <article>
+            <span>Pedidos pendientes</span>
+            <strong id="pendingOrders">18</strong>
+          </article>
+          <article>
+            <span>Fraude detectado</span>
+            <strong id="fraudCases">3</strong>
+          </article>
+          <article>
+            <span>Reembolsos hoy</span>
+            <strong id="refundsToday">7</strong>
+          </article>
+          <article>
+            <span>Ingresos (24h)</span>
+            <strong id="dailyRevenue">$482.30</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Filtros de revisión</h2>
+        <form id="filtersForm" class="filters">
+          <label>
+            Estado
+            <select id="statusFilter">
+              <option value="all">Todos</option>
+              <option value="pending">Pendiente</option>
+              <option value="approved">Aprobado</option>
+              <option value="rejected">Rechazado</option>
+            </select>
+          </label>
+          <label>
+            Método de pago
+            <select id="paymentFilter">
+              <option value="all">Todos</option>
+              <option value="paypal">PayPal</option>
+              <option value="card">Tarjeta</option>
+              <option value="crypto">Crypto</option>
+            </select>
+          </label>
+          <label>
+            Buscar jugador
+            <input id="searchFilter" placeholder="Ej: Notch" />
+          </label>
+        </form>
+      </section>
+
+      <section class="card span-2">
+        <div class="row between">
+          <h2>Cola de revisión de compras</h2>
+          <button class="btn" id="refreshBtn">Actualizar</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Jugador</th>
+                <th>Paquete</th>
+                <th>Monto</th>
+                <th>Pago</th>
+                <th>Riesgo</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Atajos rápidos</h2>
+        <div class="actions">
+          <button class="btn">Ver blacklist IP</button>
+          <button class="btn">Sincronizar con Tebex</button>
+          <button class="btn">Exportar reporte CSV</button>
+          <button class="btn">Revisar logs de chargeback</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Actividad reciente</h2>
+        <ul id="activityLog" class="activity-log"></ul>
+      </section>
+    </main>
+
+    <dialog id="moderationDialog">
+      <form method="dialog" id="moderationForm">
+        <h3 id="dialogTitle">Acción de moderación</h3>
+        <p id="dialogDetails"></p>
+        <label>
+          Motivo
+          <textarea id="reasonInput" rows="4" required></textarea>
+        </label>
+        <menu>
+          <button value="cancel" class="btn">Cancelar</button>
+          <button value="confirm" class="btn btn-primary">Confirmar</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
